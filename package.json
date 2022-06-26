@@ -1,0 +1,64 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "lint": "umi g tmp && npm run lint:js && npm run lint:style && npm run lint:prettier && npm run tsc",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
+    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src && npm run lint:style",
+    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+    "lint:prettier": "prettier -c --write \"src/**/*\" --end-of-line auto",
+    "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
+    "prettier": "prettier -c --write \"src/**/*\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "deps": "yarn upgrade-interactive --latest"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "fabric verify-commit"
+  },
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "antd-mobile": "^5.13.1",
+    "antd-mobile-icons": "^0.2.2",
+    "hox": "^1.1.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-lazyload": "^3.2.0",
+    "react-masonry-component": "^6.3.0",
+    "react-masonry-css": "^1.0.16",
+    "umi": "^3.5.23",
+    "umi-plugin-keep-alive": "^0.0.1-beta.30"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^17.0.14",
+    "@umijs/fabric": "^2.10.2",
+    "@umijs/preset-react": "^2.1.3",
+    "@umijs/test": "^3.5.23",
+    "eruda": "^2.4.1",
+    "lint-staged": "^12.4.1",
+    "postcss-px-to-viewport": "^1.1.1",
+    "prettier": "^2.6.2",
+    "stylelint": "13.0.0",
+    "typescript": "^4.6.4",
+    "yorkie": "^2.0.0"
+  },
+  "resolutions": {
+    "@types/react": "17.0.44"
+  }
+}

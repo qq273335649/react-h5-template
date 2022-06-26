@@ -1,0 +1,31 @@
+.home {
+  padding: 20px;
+}
+
+.flex_item {
+  border: 1px solid;
+}
+
+.flex {
+  display: flex;
+
+  .col {
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+
+    .item {
+      background-color: yellow;
+    }
+  }
+}
+
+.relative {
+  position: relative;
+  &>div{
+    position: absolute;
+    width: 50%;
+  }
+}
