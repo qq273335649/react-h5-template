@@ -13,7 +13,7 @@ const Header: FC<IProps> = ({ title }) => {
   };
 
   return (
-    <div className={styles.navBar}>
+    <div className={styles.navBar} style={{ display: 'none' }}>
       <div className={styles.navBarLeft}>
         <LeftOutline onClick={goBack} />
       </div>
